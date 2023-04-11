@@ -1,40 +1,62 @@
-const testiData = [
-    {
-        image: "./assets/testimonial/patrick.jpg",
-        quotes: "Berhentilah hidup di masa lalu, itu hanya akan menyakitimu",
-        author: "Patrick Star",
-        rating: 5
-    },
-    {
-        image: "./assets/testimonial/squidward.jpg",
-        quotes: "Orang banyak bicara ketika mereka ingin terlihat pintar",
-        author: "Squidward Tentacles",
-        rating: 4
-    },
-    {
-        image: "./assets/testimonial/mrCrab.jpg",
-        quotes: "Uang lebih manis daripada madu",
-        author: "Eugene Crab",
-        rating: 4
-    },
-    {
-        image: "./assets/testimonial/patrick.jpg",
-        quotes: "Pengetahuan tidak dapat menggantikan persahabatan",
-        author: "Patrick Star",
-        rating: 1
-    },
-    {
-        image: "./assets/testimonial/squidward.jpg",
-        quotes: "Aku benci kalian semua",
-        author: "Squidward Tentacles",
-        rating: 2
-    }
-]
+// const testiData = [
+//     {
+//         image: "./assets/testimonial/patrick.jpg",
+//         quotes: "Berhentilah hidup di masa lalu, itu hanya akan menyakitimu",
+//         author: "Patrick Star",
+//         rating: 5
+//     },
+//     {
+//         image: "./assets/testimonial/squidward.jpg",
+//         quotes: "Orang banyak bicara ketika mereka ingin terlihat pintar",
+//         author: "Squidward Tentacles",
+//         rating: 4
+//     },
+//     {
+//         image: "./assets/testimonial/mrCrab.jpg",
+//         quotes: "Uang lebih manis daripada madu",
+//         author: "Eugene Crab",
+//         rating: 4
+//     },
+//     {
+//         image: "./assets/testimonial/patrick.jpg",
+//         quotes: "Pengetahuan tidak dapat menggantikan persahabatan",
+//         author: "Patrick Star",
+//         rating: 1
+//     },
+//     {
+//         image: "./assets/testimonial/squidward.jpg",
+//         quotes: "Aku benci kalian semua",
+//         author: "Squidward Tentacles",
+//         rating: 2
+//     }
+// ]
+const testimonial = new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest()
 
-function renderData() {
+    xhr.open("GET", "https://api.npoint.io/d77c61b8e4f36801ff8a", true)
+
+    xhr.onload = function (){
+        if(xhr.status == 200) {
+            resolve(JSON.parse(xhr.response))
+        } else {
+            reject("Error loading data")
+        }
+    }
+
+    xhr.onerror = function() {
+        reject("Network Error")
+    }
+
+    xhr.send()
+})
+
+
+async function renderData() {
+    const response = await testimonial
+    console.log(response)
     let testiHtml = ''
 
-    testiData.forEach((data) => {
+    response.forEach((data) => {
         testiHtml += `
 <div class="card shadow" id="testi">
     <div class="testiContent">
@@ -59,10 +81,11 @@ function renderData() {
 }
 renderData()
 
-function filterRating(rating) {
+async function filterRating(rating) {
+    const response =  await testimonial
     let testiHtml = ''
 
-    const filterData = testiData.filter(function (data) {
+    const filterData = response.filter(function (data) {
         return data.rating === rating
     })
     console.log(filterData)
