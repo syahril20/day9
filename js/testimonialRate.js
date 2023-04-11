@@ -107,7 +107,7 @@ async function filterRating(rating) {
             <p class="author">- ${data.author}</p>
         </div>
         <div>
-            <p class="author">${data.rating}</p>
+            <p class="author">${data.rating}<img src="./assets/black-star.png" class="star"></p>
         </div>
     </div>
 </div>
