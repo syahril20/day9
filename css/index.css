@@ -251,9 +251,16 @@ body {
   padding: 10px 15px;
   border-radius: 10px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
   transition: 0.5s;
   border: none;
   box-shadow: 0 5px 15px rgb(153, 153, 153);
+}
+.rate-area .star {
+  width: 20px;
+  position: relative;
+  bottom: 1px;
 }
 .rate-area .rate-button:hover {
   background-color: #5c8fff;
@@ -307,6 +314,11 @@ body {
 .testBody .card .testiContent .rating {
   display: flex;
   justify-content: end;
+}
+.testBody .card .testiContent .star {
+  width: 20px;
+  position: relative;
+  bottom: 1px;
 }
 
 .container-detail {

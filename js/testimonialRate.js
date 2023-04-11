@@ -70,7 +70,7 @@ async function renderData() {
             <p class="author">- ${data.author}</p>
         </div>
         <div>
-            <p class="rating">${data.rating} </p>
+            <p class="rating">${data.rating}<img src="./assets/black-star.png" class="star"></p>
         </div>
     </div>
 </div>
