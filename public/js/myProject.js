@@ -10,7 +10,7 @@ function test() {
         end: monthSet,
         postAt: today,
         description: `PARBOABOA - Tiobe merilis peringkat 10 bahasa pemograman paling populer di dunia untuk Oktober 2021. Dalam laporan bertajuk "Tiobe Programming Community index", Phyton dinobatkan sebagai bahasa programming terpopuler di dunia saat ini.`,
-        image: "./assets/content.png",
+        image: "../assets/content.png",
         node: true,
         next: true,
         react: true,
@@ -81,10 +81,10 @@ function renderBlog() {
                 </div>
                 <div class="footer">
                     <div class="logo-area">
-                    ${blogs[i].node ? '<img src="./assets/node.png" alt="logo" class="tech-logo">' : ''}
-                    ${blogs[i].next ? '<img src="./assets/next.png" alt="logo" class="tech-logo">' : ''}
-                    ${blogs[i].react ? '<img src="./assets/react.png" alt="logo" class="tech-logo">' : ''}
-                    ${blogs[i].typescript ? '<img src="./assets/typescript.png" alt="logo" class="tech-logo">' : ''}
+                    ${blogs[i].node ? '<img src="../assets/node.png" alt="logo" class="tech-logo">' : ''}
+                    ${blogs[i].next ? '<img src="../assets/next.png" alt="logo" class="tech-logo">' : ''}
+                    ${blogs[i].react ? '<img src="../assets/react.png" alt="logo" class="tech-logo">' : ''}
+                    ${blogs[i].typescript ? '<img src="../assets/typescript.png" alt="logo" class="tech-logo">' : ''}
                     </div>
                     <div class="button-area">
                         <div>
